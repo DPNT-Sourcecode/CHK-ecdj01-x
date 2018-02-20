@@ -15,7 +15,6 @@ def checkout(skus):
         counter['B'] -= div
         if counter['B'] <= 0:
             del counter['B']
-        discount += div * 20
 
     if 'A' in counter:
         div5, mod5 = divmod(counter['A'], 5)
