@@ -9,7 +9,7 @@ def checkout(skus):
         return -1
 
     discount = 0
-
+    print discount, counter
     if 'E' in counter and 'B' in counter:
         div = counter['E'] // 2
         counter['B'] -= div
