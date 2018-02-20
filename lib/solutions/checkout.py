@@ -29,7 +29,7 @@ def checkout(skus):
     return (counter['A'] * 50 +
             counter['B'] * 30 +
             counter['C'] * 20 +
-            counter['D'] * 15 -
+            counter['D'] * 15 +
             counter['E'] * 40 -
             discount)
 
