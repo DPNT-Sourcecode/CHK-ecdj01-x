@@ -29,5 +29,14 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout('AAAAAAAAA'), 380)
         self.assertEqual(checkout('AAAAAAAAAA'), 400)
 
+    def test_F_discount(self):
+        self.assertEqual(checkout('F'), 10)
+        self.assertEqual(checkout('FF'), 20)
+        self.assertEqual(checkout('FFF'), 20)
+        self.assertEqual(checkout('FFFF'), 30)
+        self.assertEqual(checkout('FFFFF'), 40)
+        self.assertEqual(checkout('FFFFFF'), 40)
+
+
 if __name__ == '__main__':
     unittest.main()

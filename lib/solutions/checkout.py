@@ -5,11 +5,16 @@ from collections import Counter
 def checkout(skus):
     counter = Counter(skus)
 
-    if not set(counter.keys()) <= set('ABCDE'):
+    if not set(counter.keys()) <= set('ABCDEF'):
         return -1
 
     discount = 0
-    print discount, counter
+
+
+    if 'F' in counter:
+        div = counter['F'] // 3
+        counter['F'] -= div
+
     if 'E' in counter and 'B' in counter:
         div = counter['E'] // 2
         counter['B'] -= div
@@ -30,6 +35,7 @@ def checkout(skus):
             counter['B'] * 30 +
             counter['C'] * 20 +
             counter['D'] * 15 +
-            counter['E'] * 40 -
+            counter['E'] * 40 +
+            counter['F'] * 10 -
             discount)
 
