@@ -90,12 +90,12 @@ def checkout(skus):
 
     for key in free_item:
         if key in counter:
-            free_item[key][counter]
+            free_item[key](counter)
 
     for key in multibuy:
         if key in counter:
             quantity = counter[key]
-            discount = multibuy[key][quantity]
+            discount = multibuy[key](quantity)
 
     print discount, counter
     return sum(price[k] * v for k, v in counter.items()) - discount
