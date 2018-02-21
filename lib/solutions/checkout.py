@@ -1,6 +1,7 @@
 
 from collections import Counter
 from functools import partial
+import operator
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -51,7 +52,9 @@ def group_discount(counter):
             mod -= quantity
             total += quantity * price[letter]
 
-    original = sum(map(operator.mul, group_price, ))
+    original = sum(map(operator.mul, group_price, group_quantity))
+
+    return original - total
 
 
 multibuy = {
@@ -108,7 +111,7 @@ def checkout(skus):
     if not set(counter.keys()) <= set(price.keys()):
         return -1
 
-    discount = 0
+    discount = group_discount(counter)
 
     for key in free_item:
         if key in counter:
