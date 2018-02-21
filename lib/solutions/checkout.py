@@ -5,13 +5,32 @@ from functools import partial
 # noinspection PyUnusedLocal
 # skus = unicode string
 
+
 def multibuy(item_quantity, amount, discount,
                             amount2=None, discount2=None):
 
     if amount2 and discount2:
         div2, mod2 = divmod(item_quantity, amount2)
-        div2 = mod2 // amount
+        div = mod2 // amount
         return div2 * discount2 + div * discount
+
+    else:
+        div = item_quantity // amount
+        return div * discount
+
+
+def buy_N_get_one_free(counter, item, target, free_item=None):
+
+    div = counter[item] // target
+
+    if not free_item:
+        counter[item] -= div
+    else:
+        counter[free_item] -= div
+
+        if counter[free_item] <= 0:
+            del counter[free_item]
+
 
 multibuy = {
     'A': partial(multibuy, amount=3, discount=20, amount2=5, discount2=50),
