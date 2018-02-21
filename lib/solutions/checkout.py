@@ -95,7 +95,7 @@ def checkout(skus):
     for key in multibuy:
         if key in counter:
             quantity = counter[key]
-            discount = multibuy[key](quantity)
+            discount += multibuy[key](quantity)
 
     print discount, counter
     return sum(price[k] * v for k, v in counter.items()) - discount
