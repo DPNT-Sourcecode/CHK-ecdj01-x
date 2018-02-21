@@ -39,3 +39,11 @@ def checkout(skus):
             counter['F'] * 10 -
             discount)
 
+
+def checkout(skus):
+    counter = Counter(skus)
+
+    if not set(counter.keys()) <= set('ABCDEF'):
+        return -1
+
+    discount = 0
