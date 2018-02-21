@@ -34,7 +34,25 @@ def buy_N_get_one_free(counter, item, target, free_item=None):
 def group_discount(counter):
 
     group_quantity = [counter[i] for i in 'ZSTYX']
-    group_price = [price[i] ]
+    group_price = [price[i] for i in 'ZSTYX']
+
+    div, mod = divmod(sum(group_quantity), 3)
+    total = div * 45
+
+    print '------'
+    print counter, group_quantity, group_price
+    for letter in reversed('ZSTYX'):
+        quantity = counter[letter]
+
+        if quantity >= mod:
+            total += mod * price[letter]
+            break
+        else:
+            mod -= quantity
+            total += quantity * price[letter]
+
+    original = sum(map(operator.mul, group_price, ))
+
 
 multibuy = {
     'A': partial(multibuy, amount=3, discount=20, amount2=5, discount2=50),
