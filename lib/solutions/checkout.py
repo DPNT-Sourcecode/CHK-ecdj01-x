@@ -9,7 +9,9 @@ def multibuy(item_quantity, amount, discount,
                             amount2=None, discount2=None):
 
     if amount2 and discount2:
-        div2, mod2
+        div2, mod2 = divmod(item_quantity, amount2)
+        div2 = mod2 // amount
+        return div2 * discount2 + div * discount
 
 multibuy = {
     'A': partial(multibuy, amount=3, discount=20, amount2=5, discount2=50),
