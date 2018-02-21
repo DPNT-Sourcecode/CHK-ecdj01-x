@@ -39,11 +39,26 @@ def checkout(skus):
             counter['F'] * 10 -
             discount)
 
+price = {
+
+}
 
 def checkout(skus):
     counter = Counter(skus)
 
-    if not set(counter.keys()) <= set('ABCDEF'):
+    if not set(counter.keys()) <= set(price.keys()):
         return -1
 
     discount = 0
+
+    for key in free_item:
+        if key in counter:
+            free_item[key][counter]
+
+    for key in multibuy:
+        if key in counter:
+            quantity = counter[key]
+            discount = multibuy[key][quantity]
+
+    print discount, counter
+    return sum(price[k] * v for k, v in counter.items()) - discount
