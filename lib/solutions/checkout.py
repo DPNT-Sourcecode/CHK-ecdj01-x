@@ -39,10 +39,19 @@ def checkout(skus):
             counter['F'] * 10 -
             discount)
 
+multibuy = {
+    'A': partial(multibuy, amount=3, discount=20, amount2=5, discount2=50),
+    'B': partial(multibuy, amount=2, discount=15),
+    'H': partial(multibuy, amount=5, discount=5, amount2=10, discount2=20),
+    
+}
+
 free_item = {
     'E': partial(buy_N_get_one_free, item='E', target=2, free_item='B'),
     'F': partial(buy_N_get_one_free, item='F', target=3),
-    'E': partial(buy_N_get_one_free, item='E', target=2, free_item='B'),
+    'N': partial(buy_N_get_one_free, item='N', target=3, free_item='M'),
+    'R': partial(buy_N_get_one_free, item='R', target=3, free_item='Q'),
+    'U': partial(buy_N_get_one_free, item='U', target=4),
 
 }
 
