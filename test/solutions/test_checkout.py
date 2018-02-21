@@ -38,5 +38,17 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout('FFFFFF'), 40)
 
 
+    def test_group_discount(self):
+        self.assertEqual(checkout('ST'), 40)
+        self.assertEqual(checkout('TY'), 40)
+        self.assertEqual(checkout('ZZS'), 45)
+        self.assertEqual(checkout('TTX'), 45)
+        self.assertEqual(checkout('XXX'), 45)
+        self.assertEqual(checkout('TXY'), 45)
+        self.assertEqual(checkout('TXYS'), 62)
+        self.assertEqual(checkout('ZSTY'), 65)
+        self.assertEqual(checkout('ZZZY'), 65)
+        self.assertEqual(checkout('ZXZZ'), 62)
+
 if __name__ == '__main__':
     unittest.main()

@@ -36,7 +36,7 @@ multibuy = {
     'A': partial(multibuy, amount=3, discount=20, amount2=5, discount2=50),
     'B': partial(multibuy, amount=2, discount=15),
     'H': partial(multibuy, amount=5, discount=5, amount2=10, discount2=20),
-    'K': partial(multibuy, amount=2, discount=10),
+    'K': partial(multibuy, amount=2, discount=20),
     'P': partial(multibuy, amount=5, discount=50),
     'Q': partial(multibuy, amount=3, discount=10),
     'V': partial(multibuy, amount=2, discount=10, amount2=3, discount2=20),
@@ -62,7 +62,7 @@ price = {
     'H': 10,
     'I': 35,
     'J': 60,
-    'K': 80,
+    'K': 70,
     'L': 90,
     'M': 15,
     'N': 40,
@@ -70,14 +70,14 @@ price = {
     'P': 50,
     'Q': 30,
     'R': 50,
-    'S': 30,
+    'S': 20,
     'T': 20,
     'U': 40,
     'V': 50,
     'W': 20,
-    'X': 90,
-    'Y': 10,
-    'Z': 50
+    'X': 17,
+    'Y': 20,
+    'Z': 21
 }
 
 def checkout(skus):
