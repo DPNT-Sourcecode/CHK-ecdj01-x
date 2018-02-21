@@ -31,6 +31,10 @@ def buy_N_get_one_free(counter, item, target, free_item=None):
         if counter[free_item] <= 0:
             del counter[free_item]
 
+def group_discount(counter):
+
+    group_quantity = [counter[i] for i in 'ZSTYX']
+    group_price = [price[i] ]
 
 multibuy = {
     'A': partial(multibuy, amount=3, discount=20, amount2=5, discount2=50),
